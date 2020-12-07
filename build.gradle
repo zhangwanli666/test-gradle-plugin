@@ -1,0 +1,35 @@
+
+plugins {
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '0.12.0'
+}
+
+group 'com.github.zhangwanli666'
+version '0.0.1'
+
+gradlePlugin {
+    plugins {
+        envFilePlugin {
+            id = 'com.sap.s4hana.eureka.framework.test-env'
+            description= 'auto-generate env file that contains local ip in specific dictory'
+            implementationClass = 'com.sap.s4hana.eureka.test.gradle.plugin.EnvFilePlugin'
+        }
+    }
+}
+
+pluginBundle {
+    website = 'https://github.com/zhangwanli666'
+    vcsUrl = 'https://github.com/zhangwanli666/test-gradle-plugin'
+    tags = ['test', 'env', 'ip']
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.zhangwanli666.test-gradle-plugin'
+            artifactId = 'test-gradle-plugin'
+            version = '0.0.1'
+        }
+    }
+}
