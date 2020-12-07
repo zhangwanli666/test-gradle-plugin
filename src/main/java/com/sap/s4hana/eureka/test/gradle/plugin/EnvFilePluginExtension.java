@@ -1,4 +1,4 @@
-package com.zhangwanli.test.gradle.plugin;
+package com.sap.s4hana.eureka.test.gradle.plugin;
 
 import java.util.List;
 

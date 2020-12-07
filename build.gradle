@@ -5,7 +5,7 @@ plugins {
     id 'com.gradle.plugin-publish' version '0.12.0'
 }
 
-group 'com.github.zhangwanli666'
+group 'com.sap.s4hana.eureka.test'
 version '0.0.1'
 
 gradlePlugin {
@@ -28,7 +28,7 @@ pluginBundle {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'com.github.zhangwanli666.test-gradle-plugin'
+            groupId = 'com.sap.s4hana.eureka.test'
             artifactId = 'test-gradle-plugin'
             version = '0.0.1'
         }

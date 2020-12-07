@@ -1,4 +1,4 @@
-package com.zhangwanli.test.gradle.plugin;
+package com.sap.s4hana.eureka.test.gradle.plugin;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
