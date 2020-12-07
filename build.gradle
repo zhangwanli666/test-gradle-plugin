@@ -12,6 +12,7 @@ gradlePlugin {
     plugins {
         envFilePlugin {
             id = 'com.sap.s4hana.eureka.framework.test-env'
+            displayName= 'env file creator'
             description= 'auto-generate env file that contains local ip in specific dictory'
             implementationClass = 'com.sap.s4hana.eureka.test.gradle.plugin.EnvFilePlugin'
         }
