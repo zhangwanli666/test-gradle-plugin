@@ -6,15 +6,25 @@ plugins {
 }
 
 group 'com.sap.s4hana.eureka.test'
-version '0.0.1'
+version '0.0.2'
 
 gradlePlugin {
     plugins {
         envFilePlugin {
-            id = 'com.sap.s4hana.eureka.framework.test-env'
+            id = 'com.sap.s4hana.eureka.framework.test'
             displayName= 'env file creator'
             description= 'auto-generate env file that contains local ip in specific dictory'
             implementationClass = 'com.sap.s4hana.eureka.test.gradle.plugin.EnvFilePlugin'
+        }
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.sap.s4hana.eureka.framework.test'
+            artifactId = 'gradle-plugin'
+            version = '0.0.2'
         }
     }
 }
@@ -23,14 +33,4 @@ pluginBundle {
     website = 'https://github.com/zhangwanli666'
     vcsUrl = 'https://github.com/zhangwanli666/test-gradle-plugin'
     tags = ['test', 'env', 'ip']
-}
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = 'com.sap.s4hana.eureka.test'
-            artifactId = 'test-gradle-plugin'
-            version = '0.0.1'
-        }
-    }
 }

@@ -33,14 +33,15 @@ public class EnvFilePlugin implements Plugin<Project> {
     }
 
     private void doEnvFileConfigure(String absolutePath, EnvFilePluginExtension extension) {
-        List<String> envFiles = extension.getEnvFiles();
-        if (Objects.isNull(envFiles) || envFiles.size() == 0) {
-            envFiles = new ArrayList<>();
+        List<String> envFiles = new ArrayList<>();
+        if (Objects.isNull(extension) || Objects.isNull(extension.getEnvFiles()) || extension.getEnvFiles().size() == 0) {
             envFiles.add("/mock/.env");
             envFiles.add("/mock/slowtest/.env");
+        } else {
+            envFiles = extension.getEnvFiles();
         }
 
-        Set<String> targetPaths = extension.getEnvFiles().stream().map(relativePath -> absolutePath + relativePath).collect(Collectors.toSet());
+        Set<String> targetPaths = envFiles.stream().map(relativePath -> absolutePath + relativePath).collect(Collectors.toSet());
 
         FileReader fileReader = null;
         FileOutputStream fileOutputStream = null;
